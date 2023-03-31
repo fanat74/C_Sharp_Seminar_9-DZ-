@@ -9,18 +9,18 @@ int numberN = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе целое положительное число");
 int numberM = Convert.ToInt32(Console.ReadLine());
 
-int summ = Sum(numberN, numberM);
+int sumNumbers = SumNumbersInIntervals(numberN, numberM);
 if (numberN<0||numberM<0)
 Console.Write("Вводите только положительные числа");
 else
-Console.Write($"Сумма чисел в промежутке от {numberN} до {numberM} равна {summ}");
+Console.Write($"Сумма чисел в промежутке от {numberN} до {numberM} равна {sumNumbers}");
 
 
-int Sum(int num1, int num2)
+int SumNumbersInIntervals(int num1, int num2)
 {
     int max= Math.Max(num1, num2);
     int min= Math.Min(num1, num2);
     if (min == max) return min;
-    else return min + Sum(min + 1, max);
+    else return min + SumNumbersInIntervals(min + 1, max);
 }
 
